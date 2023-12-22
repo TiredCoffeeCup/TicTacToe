@@ -13,11 +13,11 @@ buttonOrder = [[], [], []]
 players = ['X', 'O']
 playerIm = {}
 gameOver = False
-for i in ['X', 'O', 'P']:
+for i in ['X', 'O', 'P', 'D']:
     playerIm[i] = PhotoImage(file=f'./assets/TicTacToe/{i}.png')
 
 
-def gameEnd(p: str = 'P'):
+def gameEnd(p: str = 'D'):
     global gameOver
     gameOver = True
     for i in buttons:
@@ -27,11 +27,11 @@ def gameEnd(p: str = 'P'):
 
     winnerL = Label(winWin, image=playerIm[p])
     resultl = Label(winWin, font=('Arial Bold', 10),
-                    text=(('BOT' if p in 'O' else 'PLAYER') + ' WINS!' if p not in 'P' else "It's a DRAW!"))
+                    text=(('BOT' if p in 'O' else 'PLAYER') + ' WINS!' if p not in 'D' else "It's a DRAW!"))
 
     winnerL.pack()
     resultl.pack()
-    if p not in 'P':
+    if p not in 'D':
         print(p, 'WINS!')
     else:
         print('It is a DRAW!')
